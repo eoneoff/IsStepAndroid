@@ -71,8 +71,7 @@ public class MainActivity extends AppCompatActivity {
                     gender="женского";
                 else if(id == R.id.neutralRadio)
                     gender = "среднего";
-
-                Toast.makeText(MainActivity.this,"Это существительное "+gender+" рода", Toast.LENGTH_SHORT).show();
+                
                 TextView resultView = (TextView)findViewById(R.id.resultView);
                 resultView.setText("Это существительное "+gender+" рода");
             }
