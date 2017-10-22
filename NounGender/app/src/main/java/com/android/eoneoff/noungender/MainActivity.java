@@ -15,10 +15,6 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RadioButton maleRadio;
-    private RadioButton femaleRadio;
-    private  RadioButton neutralRadio;
-    private TextView resultView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
         RadioButton maleRadio = (RadioButton)findViewById(R.id.maleRadio);
         RadioButton femaleRadio = (RadioButton)findViewById(R.id.femaleRadio);
         RadioButton neutralRadio = (RadioButton)findViewById(R.id.neutralRadio);
-        TextView resultView = (TextView)findViewById(R.id.resultView);
 
         RadioListener listener = new RadioListener();
 
@@ -78,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
                     gender = "среднего";
 
                 Toast.makeText(MainActivity.this,"Это существительное "+gender+" рода", Toast.LENGTH_SHORT).show();
+                TextView resultView = (TextView)findViewById(R.id.resultView);
+                resultView.setText("Это существительное "+gender+" рода");
             }
         }
     }
