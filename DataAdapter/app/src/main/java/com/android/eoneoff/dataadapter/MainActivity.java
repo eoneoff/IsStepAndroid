@@ -1,6 +1,7 @@
 package com.android.eoneoff.dataadapter;
 
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -8,8 +9,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
+
+    String[] list = {"option 1", "option 2", "option 3", "option 4",
+                        "option 5", "option 6", "option 7", "option 8"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +23,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Spinner spinner = (Spinner)findViewById(R.id.dataSpinner);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,list);
+        spinner.setAdapter(adapter);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
