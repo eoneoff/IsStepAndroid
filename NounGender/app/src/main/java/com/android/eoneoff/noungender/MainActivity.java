@@ -52,27 +52,4 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    public void onClick(View view)
-    {
-        int idSelected = view.getId();
-        String gender;
-        switch (idSelected)
-        {
-            case(R.id.maleRadio):
-                gender = "мужского";
-                break;
-            case(R.id.femaleRadio):
-                gender = "женского";
-                break;
-            case (R.id.neutralRadio):
-                gender="";
-                break;
-            default:
-                gender = "непонятного";
-                break;
-        }
-
-        //resultView.setText("Это существительное"+gender+"рода");
-    }
 }

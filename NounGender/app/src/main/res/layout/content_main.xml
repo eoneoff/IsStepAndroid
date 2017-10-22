@@ -39,7 +39,6 @@
 
         <RadioButton
             android:id="@+id/maleRadio"
-            android:onClick="onClick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -47,14 +46,12 @@
 
         <RadioButton
             android:id="@+id/femaleRadio"
-            android:onClick="onClick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Женский" />
 
         <RadioButton
-            android:onClick="onClick"
             android:id="@+id/neutralRadio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
