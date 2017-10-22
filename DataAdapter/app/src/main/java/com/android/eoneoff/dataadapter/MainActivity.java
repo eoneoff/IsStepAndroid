@@ -14,8 +14,9 @@ import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
 
-    String[] list = {"option 1", "option 2", "option 3", "option 4",
-                        "option 5", "option 6", "option 7", "option 8"};
+    String[] langs = { "Java", "PHP", "C++", "Python", "Perl", "GoLang",
+            "Pascal", "PL/SQL", "JavaScript" };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         Spinner spinner = (Spinner)findViewById(R.id.dataSpinner);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,list);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,langs);
         spinner.setAdapter(adapter);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
