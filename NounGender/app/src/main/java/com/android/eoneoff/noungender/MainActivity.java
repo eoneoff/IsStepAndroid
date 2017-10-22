@@ -8,13 +8,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RadioButton maleRadil;
+    private RadioButton maleRadio;
     private RadioButton femaleRadio;
     private  RadioButton neutralRadio;
     private TextView resultView;
@@ -23,10 +24,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        RadioButton maleRadil = (RadioButton)findViewById(R.id.maleRadio);
+        RadioButton maleRadio = (RadioButton)findViewById(R.id.maleRadio);
         RadioButton femaleRadio = (RadioButton)findViewById(R.id.femaleRadio);
         RadioButton neutralRadio = (RadioButton)findViewById(R.id.neutralRadio);
         TextView resultView = (TextView)findViewById(R.id.resultView);
+
+        RadioListener listener = new RadioListener();
+
+        maleRadio.setOnCheckedChangeListener(listener);
+        femaleRadio.setOnCheckedChangeListener(listener);
+        neutralRadio.setOnCheckedChangeListener(listener);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }
@@ -51,5 +59,26 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    class RadioListener implements CompoundButton.OnCheckedChangeListener
+    {
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+        {
+            if(isChecked)
+            {
+                int id = buttonView.getId();
+                String gender = "непонятного";
+                if(id == R.id.maleRadio)
+                    gender = "мужского";
+                else if(id == R.id.femaleRadio)
+                    gender="женского";
+                else if(id == R.id.neutralRadio)
+                    gender = "среднего";
+
+                Toast.makeText(MainActivity.this,"Это существительное "+gender+" рода", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }
